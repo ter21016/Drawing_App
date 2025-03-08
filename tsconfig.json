@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "target": "es6",
+    "module": "NodeNext",
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "paths": {
+      "undici-types": ["./node_modules/undici-types"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
