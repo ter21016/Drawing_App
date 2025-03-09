@@ -1,13 +1,31 @@
 body {
-    text-align: center;
+    display: flex;
+    margin: 0;
     font-family: Arial, sans-serif;
 }
 
 .toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ccc;
+    width: 120px;
+    height: 100vh;
     margin-bottom: 20px;
 }
 
+.toolbar button, .toolbar input {
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 canvas {
-    border: 1px solid black;
+    flex: 1;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    border: 5px solid black;
     cursor: crosshair;
 }

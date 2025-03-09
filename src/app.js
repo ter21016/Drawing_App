@@ -77,8 +77,11 @@ function draw(e) {
   endX = e.offsetX;
   endY = e.offsetY;
 
+  // Only clear the canvas for shapes, not for the brush
+  if (currentTool !== 'brush') {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   redrawCanvas(); // Redraw previous drawings
+  }
 
   ctx.lineWidth = brushSize;
   ctx.strokeStyle = brushColor;
@@ -88,8 +91,6 @@ function draw(e) {
   if (currentTool === 'brush') {
     ctx.lineTo(endX, endY);
     ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(endX, endY);
   } else if (currentTool === 'line') {
     ctx.beginPath();
     ctx.moveTo(startX, startY);
@@ -186,5 +187,12 @@ function addText(x, y) {
     }
     document.body.removeChild(input);
     textInputVisible = false;
+  });
+
+  // Handle pressing Enter key
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      input.blur(); // Trigger the blur event
+    }
   });
 }
